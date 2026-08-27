@@ -11,8 +11,9 @@
   --white: #ffffff;
   --line: #e1e8ec;
   --radius: 10px;
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font: "Optima", "Optima Nova", "Optima Std", Candara, "Segoe UI", "Century Gothic", "URW Gothic", sans-serif;
+  --serif: var(--font);
+  --sans: var(--font);
   --max: 1180px;
   --max-narrow: 800px;
 }
@@ -21,7 +22,8 @@
 html{ scroll-behavior: smooth; }
 body{
   margin:0;
-  font-family: var(--sans);
+  font-family: var(--font);
+  font-weight: 500;
   color: var(--ink);
   background: var(--white);
   line-height: 1.65;
