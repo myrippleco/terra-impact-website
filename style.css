@@ -6,10 +6,11 @@
   --forest-dark: #204028;
   --sky: #cfe3ee;
   --sky-light: #f3f8fa;
+  --cream: #f5f0e3;
   --ink: #1c2b36;
   --muted: #566878;
-  --white: #ffffff;
-  --line: #e1e8ec;
+  --white: #f5f0e3;
+  --line: #e5dfd0;
   --radius: 10px;
   --font: "Optima", "Optima Nova", "Optima Std", Candara, "Segoe UI", "Century Gothic", "URW Gothic", sans-serif;
   --serif: var(--font);
@@ -93,28 +94,31 @@ p:last-child{ margin-bottom:0; }
   display:inline-block;
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  padding: 14px 30px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 15px 32px;
   border-radius: 999px;
   text-decoration:none;
   transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
 }
 .btn-primary{
-  background: var(--forest);
+  background: var(--navy);
   color: #fff;
 }
 .btn-primary:hover{ background: var(--forest-dark); transform: translateY(-1px); }
 .btn-ghost{
-  border: 1.5px solid rgba(255,255,255,0.75);
-  color: #fff;
+  background:none;
+  border:none;
+  color: var(--navy);
+  padding: 15px 4px;
 }
-.btn-ghost:hover{ background: rgba(255,255,255,0.12); transform: translateY(-1px); }
+.btn-ghost:hover{ color: var(--forest); text-decoration: underline; }
 
 /* ---------- Header ---------- */
 .site-header{
   position: sticky; top:0; z-index: 100;
-  background: rgba(255,255,255,0.94);
+  background: rgba(245,240,227,0.94);
   backdrop-filter: saturate(180%) blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -143,13 +147,17 @@ p:last-child{ margin-bottom:0; }
 }
 .site-nav a:not(.nav-cta):hover{ color: var(--forest); }
 .nav-cta{
-  background: var(--navy);
-  color:#fff !important;
-  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px solid var(--navy);
+  color: var(--navy) !important;
+  padding: 8.5px 20px;
   border-radius: 999px;
   font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
-.nav-cta:hover{ background: var(--forest); }
+.nav-cta:hover{ background: var(--navy); color:#fff !important; }
 
 .nav-toggle{
   display:none;
@@ -165,60 +173,49 @@ p:last-child{ margin-bottom:0; }
   background: var(--navy-deep);
 }
 
-/* ---------- Hero / media sections ---------- */
+/* ---------- Hero ---------- */
 .hero{
-  position: relative;
-  min-height: 92vh;
-  display:flex;
+  background: var(--cream);
+  padding: 76px 0 90px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
   align-items:center;
-  overflow:hidden;
-  color:#fff;
-}
-.hero-media{
-  position:absolute; inset:0;
-  background-size: cover;
-  background-position: center;
-}
-.hero-scrim{
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(13,33,51,0.42) 0%, rgba(13,33,51,0.26) 45%, rgba(13,33,51,0.62) 100%);
-}
-.hero-content{
-  position:relative;
-  padding-top: 120px;
-  padding-bottom: 100px;
-  max-width: 880px;
-}
-.hero-logo{
-  width: 84px; height:84px;
-  margin-bottom: 28px;
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+  gap: 48px;
 }
 .hero .eyebrow{
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  color: var(--sky);
-  margin-bottom: 18px;
-  text-shadow: 0 1px 10px rgba(9,20,30,0.55);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 20px;
 }
 .hero h1{
-  color:#fff;
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  color: var(--navy-deep);
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
   line-height: 1.28;
   font-weight: 500;
-  margin-bottom: 24px;
-  text-shadow: 0 2px 16px rgba(9,20,30,0.55);
+  margin-bottom: 22px;
 }
 .hero .lede{
-  color: #eef3f6;
-  font-size: 1.08rem;
-  max-width: 720px;
-  text-shadow: 0 1px 10px rgba(9,20,30,0.5);
+  color: var(--muted);
+  font-size: 1.06rem;
+  max-width: 620px;
 }
 .hero-actions{
-  display:flex; flex-wrap:wrap; gap: 16px;
-  margin-top: 20px;
+  display:flex; flex-wrap:wrap; align-items:center; gap: 8px 20px;
+  margin-top: 24px;
+}
+.hero-mark{
+  display:flex;
+  justify-content:center;
+}
+.hero-logo-graphic{
+  width: 100%;
+  max-width: 480px;
 }
 
 /* ---------- Generic sections ---------- */
@@ -308,6 +305,17 @@ p:last-child{ margin-bottom:0; }
   margin: 0;
 }
 
+/* ---------- Media banner (background photo + readable text) ---------- */
+.hero-media{
+  position:absolute; inset:0;
+  background-size: cover;
+  background-position: center;
+}
+.hero-scrim{
+  position:absolute; inset:0;
+  background: linear-gradient(100deg, rgba(9,20,30,0.82) 0%, rgba(9,20,30,0.6) 32%, rgba(9,20,30,0.18) 62%, rgba(9,20,30,0.05) 100%);
+}
+
 /* ---------- Global ---------- */
 .global{
   position:relative;
@@ -318,7 +326,7 @@ p:last-child{ margin-bottom:0; }
   color:#fff;
 }
 .global-content{ position:relative; max-width: 760px; padding-top: 90px; padding-bottom: 90px; }
-.global-content p{ margin-bottom: 1em; }
+.global-content p{ margin-bottom: 1em; text-shadow: 0 1px 10px rgba(9,20,30,0.5); }
 
 /* ---------- Founder ---------- */
 .founder-card{
@@ -380,6 +388,9 @@ p:last-child{ margin-bottom:0; }
 @media (max-width: 900px){
   .service-grid{ grid-template-columns: 1fr; }
   .why-grid{ grid-template-columns: repeat(2, 1fr); }
+  .hero-grid{ grid-template-columns: 1fr; gap: 8px; }
+  .hero-mark{ order: -1; }
+  .hero-logo-graphic{ max-width: 260px; margin: 0 auto 8px; }
 }
 
 @media (max-width: 720px){
@@ -387,7 +398,7 @@ p:last-child{ margin-bottom:0; }
   .site-nav{
     position:absolute;
     top: 100%; left:0; right:0;
-    background:#fff;
+    background: var(--white);
     border-bottom: 1px solid var(--line);
     flex-direction:column;
     align-items:flex-start;
@@ -399,7 +410,7 @@ p:last-child{ margin-bottom:0; }
   .site-nav a{ padding: 12px 0; width:100%; }
   .nav-cta{ margin-top: 8px; text-align:center; }
 
-  .hero-content{ padding-top: 90px; padding-bottom: 70px; }
+  .hero{ padding: 44px 0 56px; }
   .section{ padding: 64px 0; }
   .why-grid{ grid-template-columns: 1fr; }
   .founder-card{ padding: 28px; }
