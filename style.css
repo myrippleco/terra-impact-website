@@ -195,7 +195,7 @@ p:last-child{ margin-bottom:0; }
 }
 .hero h1{
   color: var(--navy-deep);
-  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-size: clamp(1.5rem, 2.7vw, 2.175rem);
   line-height: 1.28;
   font-weight: 500;
   margin-bottom: 22px;
